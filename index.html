@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:400,500&display=swap"></link>
+        <link rel="stylesheet" href="css/style.css"></link>
+        <!-- https://cdnjs.com/libraries/font-awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="modal">
+            <div class="modal-content">
+               <input class="modal-title" placeholder="Título" type="text">   
+               <input class="modal-text" placeholder="Toma nota..." type="text"> 
+               <input class="modal-date" placeholder="¿Para cuándo quieres hacer esto?" type="date">   
+               <span class="modal-close-button">Close</span>
+             </div>    
+         </div> 
+
+
+    <main>
+        <header>
+            <i class="fas fa-hippo"><h2 class="header-title">Teresais Notas</h2></i>
+    
+</header>
+<div id="form-container">
+<form id="form" autocomplete="off">
+    <input id="note-title" placeholder="Título" type="text">
+    <input id="note-text" placeholder="Toma nota..." type="text">
+    <input id="note-date" placeholder="¿Para cuándo quieres hacer esto?" type="date">
+    <div id="form-buttons">
+        <button type="submit" id="submit-button">Submit</button>
+        <button type="button" id="form-close-button">Close</button>
+    </div>
+
+</form>
+
+
+</div>
+<div id="notes"></div>
+<div id="placeholder">
+    <img id="placeholder-logo"  src="https://icon.now.sh/lightbulb_outline">
+    <p id="placeholder-text">Las notas que añades aparecen aquí  </p>
+</div>
+<div id="color-tooltip">
+    <div class="color-option" data-color="#de7136" id="LateSundown"></div>
+    <div class="color-option" data-color="#6eb269" id="FreshParsley"></div>
+    <div class="color-option" data-color="#3baad7" id="AfternoonSky"></div>
+    <div class="color-option" data-color="#de8e83" id="BulgarianRose"></div>
+    <div class="color-option" data-color="#d59200" id="SofiaSundown"></div>
+    
+  </div>
+
+       </main> 
+       <script src="js/app.js"></script>
+    </body>
+</html>
+
+<!-- https://google.com/keep -->
