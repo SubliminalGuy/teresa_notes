@@ -160,7 +160,7 @@ this.closeForm();
 editNote() {
     const title = this.$modalTitle.value;
     const text = this.$modalText.value;
-    const date = this.$modalDate.value;
+    const date = this.$modalDate.value.split('-').reverse().join('-');
     this.notes = this.notes.map(note => 
         note.id === Number(this.id) ? { ...note, title, text, date } : note
         );
