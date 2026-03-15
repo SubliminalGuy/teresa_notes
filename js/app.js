@@ -100,7 +100,7 @@ openForm() {
     this.$form.classList.add('form-open');
     this.$noteTitle.style.display = 'block';
     this.$noteDate.style.display = 'block';
-    this.$formButtons.style.display = 'block';
+    this.$formButtons.style.display = 'flex';
 }
 
 closeForm() {
