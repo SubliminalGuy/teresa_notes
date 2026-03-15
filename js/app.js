@@ -212,8 +212,8 @@ this.$notes.innerHTML = this.notes.map(note => `
     <div class="note-text">${note.text}</div>
     <div class="note-date">${note.date}</div>
     <div class="toolbar">
-        <img class="toolbar-color" data-id=${note.id} src="https://icon.now.sh/palette">
-        <img class="toolbar-delete" data-id=${note.id}  src="https://icon.now.sh/delete">
+        <i class="fas fa-palette toolbar-color" data-id=${note.id}></i>
+        <i class="fas fa-trash toolbar-delete" data-id=${note.id}></i>
     </div>
     </div>
     </div>
