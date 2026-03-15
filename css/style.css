@@ -211,7 +211,7 @@ main {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -291,34 +291,53 @@ main {
   background: rgba(0,0,0,0.07);
 }
 
-/* ---- COLOR TOOLTIP ---- */
+/* ---- PER-NOTE COLOR PICKER ---- */
 
-#color-tooltip {
-  position: absolute;
-  display: none;
-  gap: 6px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 8px 10px;
-  box-shadow: var(--shadow-md);
-  z-index: 50;
-  align-items: center;
+.color-picker {
+  position: relative;
 }
 
-.color-option {
-  width: 24px;
-  height: 24px;
+.color-options {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 10px;
+  gap: 7px;
+  box-shadow: var(--shadow-md);
+  z-index: 30;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+.color-options.open {
+  display: flex;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   border: 2px solid rgba(0,0,0,0.12);
   cursor: pointer;
   transition: transform var(--transition), border-color var(--transition);
 }
 
-.color-option:hover {
+.color-dot:hover,
+.color-dot:active {
   transform: scale(1.25);
-  border-color: rgba(0,0,0,0.4);
+  border-color: rgba(0,0,0,0.45);
 }
+
+.color-dot[data-color="#de7136"] { background: #de7136; }
+.color-dot[data-color="#6eb269"] { background: #6eb269; }
+.color-dot[data-color="#3baad7"] { background: #3baad7; }
+.color-dot[data-color="#de8e83"] { background: #de8e83; }
+.color-dot[data-color="#d59200"] { background: #d59200; }
 
 /* ---- MODAL ---- */
 
@@ -458,10 +477,59 @@ main {
   font-weight: 400;
 }
 
-/* ---- NOTE COLORS ---- */
+/* ---- RESPONSIVE ---- */
 
-#LateSundown   { background: #de7136; }
-#FreshParsley  { background: #6eb269; }
-#AfternoonSky  { background: #3baad7; }
-#BulgarianRose { background: #de8e83; }
-#SofiaSundown  { background: #d59200; }
+/* Always show toolbar on touch devices */
+@media (hover: none) {
+  .toolbar {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  main {
+    padding: 20px 12px 60px;
+  }
+
+  #form-container {
+    margin-bottom: 24px;
+  }
+
+  #notes {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Always show toolbar on small screens */
+  .toolbar {
+    opacity: 1;
+  }
+
+  .note-title {
+    padding: 10px 12px 2px;
+    font-size: 0.875rem;
+  }
+
+  .note-text {
+    padding: 4px 12px 8px;
+    font-size: 0.8rem;
+  }
+
+  .note-date {
+    padding: 2px 12px 8px;
+    font-size: 0.7rem;
+  }
+
+  /* Anchor color picker to left edge of card on small screens
+     to prevent it from going off-screen */
+  .color-options {
+    left: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 380px) {
+  #notes {
+    grid-template-columns: 1fr;
+  }
+}
