@@ -271,18 +271,24 @@ main {
 
 .toolbar-color,
 .toolbar-delete {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
   cursor: pointer;
-  opacity: 0.55;
+  opacity: 0.5;
   border-radius: 50%;
-  transition: opacity var(--transition), transform var(--transition);
+  color: var(--text-primary);
+  transition: opacity var(--transition), transform var(--transition), background var(--transition);
 }
 
 .toolbar-color:hover,
 .toolbar-delete:hover {
-  opacity: 0.9;
+  opacity: 1;
   transform: scale(1.1);
+  background: rgba(0,0,0,0.07);
 }
 
 /* ---- COLOR TOOLTIP ---- */
